@@ -171,6 +171,7 @@ h1, h2, h3, h4, h5 {
     color: white;
     position: relative;
     overflow: hidden;
+    padding: 20px;
 }
 
 .hero-section::before {
@@ -191,36 +192,38 @@ h1, h2, h3, h4, h5 {
     position: relative;
     z-index: 2;
     max-width: 1200px;
-    width: 100%;
     padding: 40px 20px;
     margin: 0 auto;
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 }
 
-/* Heading Alignment Fixed */
+/* Main Heading */
 .hero-content h1 {
-    font-size: 4.5rem;
+    font-size: clamp(2.5rem, 8vw, 4.5rem);
     font-weight: 800;
     margin-bottom: 1.5rem;
     text-shadow: 3px 3px 15px rgba(0, 0, 0, 0.5);
-    letter-spacing: 2px;
+    letter-spacing: 1.5px;
     animation: fadeInDown 1.2s cubic-bezier(0.4, 0, 0.2, 1) 0.2s both;
     background: linear-gradient(to right, #fff 0%, var(--secondary-color) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
     text-align: center;
-    width: 100%;
     line-height: 1.2;
-    padding: 0 20px;
+    padding: 0 10px;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    width: 100%;
 }
 
-/* Center All Elements */
+/* Subheading */
 .hero-content h2 {
-    font-size: 2.5rem;
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
     font-weight: 400;
     margin-bottom: 2.5rem;
     color: var(--secondary-color);
@@ -229,7 +232,8 @@ h1, h2, h3, h4, h5 {
     display: inline-block;
     padding-bottom: 10px;
     text-align: center;
-    width: auto;
+    max-width: 90%;
+    line-height: 1.4;
 }
 
 .hero-content h2::after {
@@ -244,24 +248,24 @@ h1, h2, h3, h4, h5 {
     border-radius: 2px;
 }
 
-/* Centered Badge */
+/* Coming Soon Badge */
 .coming-soon-badge {
     background: var(--gradient-secondary);
     color: var(--primary-color);
-    padding: 15px 45px;
+    padding: 12px 30px;
     border-radius: 40px;
     font-weight: 700;
-    font-size: 1.4rem;
+    font-size: clamp(1rem, 3vw, 1.4rem);
     display: inline-block;
-    margin: 0 auto 3rem auto;
+    margin-bottom: 3rem;
     box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3);
-    letter-spacing: 2px;
+    letter-spacing: 1.5px;
     animation: pulse 2s infinite 1s, fadeIn 1.2s ease 1s both;
     position: relative;
     overflow: hidden;
     border: 2px solid rgba(255, 255, 255, 0.2);
     text-align: center;
-    max-width: fit-content;
+    max-width: 90%;
 }
 
 .coming-soon-badge::before {
@@ -279,10 +283,10 @@ h1, h2, h3, h4, h5 {
     animation: shine 3s infinite linear;
 }
 
-/* Centered Paragraph */
+/* Lead Paragraph */
 .hero-content p.lead {
-    font-size: 1.3rem;
-    max-width: 700px;
+    font-size: clamp(1rem, 3vw, 1.3rem);
+    max-width: min(700px, 90%);
     margin: 0 auto;
     animation: fadeIn 1.2s ease 1.5s both;
     line-height: 1.8;
@@ -293,50 +297,11 @@ h1, h2, h3, h4, h5 {
     background: rgba(255, 255, 255, 0.05);
     border: 1px solid rgba(255, 255, 255, 0.1);
     text-align: center;
-    width: 100%;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
-/* Responsive Adjustments */
-@media (max-width: 768px) {
-    .hero-content h1 {
-        font-size: 3rem;
-        padding: 0 15px;
-        letter-spacing: 1px;
-    }
-    
-    .hero-content h2 {
-        font-size: 2rem;
-    }
-    
-    .coming-soon-badge {
-        padding: 12px 30px;
-        font-size: 1.2rem;
-        margin-bottom: 2rem;
-    }
-    
-    .hero-content p.lead {
-        font-size: 1.1rem;
-        padding: 15px;
-        margin: 0 15px;
-    }
-}
-
-@media (max-width: 480px) {
-    .hero-content h1 {
-        font-size: 2.5rem;
-    }
-    
-    .hero-content h2 {
-        font-size: 1.7rem;
-    }
-    
-    .coming-soon-badge {
-        padding: 10px 25px;
-        font-size: 1rem;
-        letter-spacing: 1px;
-    }
-}
-
+/* Animations */
 @keyframes shine {
     0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
     100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
@@ -383,6 +348,91 @@ h1, h2, h3, h4, h5 {
     to { 
         opacity: 1;
         transform: scale(1);
+    }
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .hero-section {
+        background-attachment: scroll;
+        padding: 15px;
+    }
+    
+    .hero-content {
+        padding: 20px 15px;
+    }
+    
+    .hero-content h1 {
+        font-size: 2.8rem;
+        letter-spacing: 1px;
+        margin-bottom: 1rem;
+    }
+    
+    .hero-content h2 {
+        font-size: 1.8rem;
+        margin-bottom: 2rem;
+    }
+    
+    .coming-soon-badge {
+        padding: 10px 25px;
+        margin-bottom: 2rem;
+        letter-spacing: 1px;
+    }
+    
+    .hero-content p.lead {
+        padding: 15px;
+        line-height: 1.6;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-section {
+        min-height: 90vh;
+        padding: 10px;
+    }
+    
+    .hero-content h1 {
+        font-size: 2.2rem;
+        line-height: 1.1;
+        margin-bottom: 0.8rem;
+    }
+    
+    .hero-content h2 {
+        font-size: 1.4rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .coming-soon-badge {
+        padding: 8px 20px;
+        font-size: 0.9rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .hero-content p.lead {
+        font-size: 1rem;
+        padding: 12px;
+        line-height: 1.5;
+    }
+    
+    .hero-content h2::after {
+        width: 80px;
+        height: 2px;
+    }
+}
+
+/* Extra small devices */
+@media (max-width: 360px) {
+    .hero-content h1 {
+        font-size: 1.8rem;
+    }
+    
+    .hero-content h2 {
+        font-size: 1.2rem;
+    }
+    
+    .coming-soon-badge {
+        padding: 6px 15px;
+        font-size: 0.8rem;
     }
 }
 
