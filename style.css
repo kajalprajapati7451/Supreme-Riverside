@@ -1659,7 +1659,7 @@ footer p {
 /* Adjusted nav links for smaller navbar */
 .navbar-nav .nav-link {
     color: rgba(247, 240, 240, 0.9) !important;
-    background-color: #a2d2f0;
+    background-color: #195d87;
     font-weight: 600;
     margin: 0 5px; /* Reduced margin */
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
