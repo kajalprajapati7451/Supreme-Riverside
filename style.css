@@ -120,7 +120,7 @@ h1, h2, h3, h4, h5 {
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.1) 100%);
+    background: linear-gradient(135deg, rgba(12, 12, 12, 0.2) 0%, rgba(19, 19, 19, 0.1) 100%);
     transition: left 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     z-index: -1;
     border-radius: 25px;
@@ -1658,7 +1658,8 @@ footer p {
 
 /* Adjusted nav links for smaller navbar */
 .navbar-nav .nav-link {
-    color: rgba(255, 255, 255, 0.9) !important;
+    color: rgba(247, 240, 240, 0.9) !important;
+    background-color: #a2d2f0;
     font-weight: 600;
     margin: 0 5px; /* Reduced margin */
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
@@ -2782,3 +2783,81 @@ footer p {
     }
 }
 
+
+  .mobile-contact-bar {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(135deg, #1e3a8a, #1d4ed8);
+    padding: 10px 15px;
+    z-index: 9999;
+    box-shadow: 0 -5px 20px rgba(0,0,0,0.2);
+    border-top: 2px solid rgba(255,255,255,0.2);
+    backdrop-filter: blur(10px);
+  }
+
+  .mobile-contact-bar .contact-buttons {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  .mobile-contact-bar .btn-call,
+  .mobile-contact-bar .btn-wa {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px 8px;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 1rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: 2px solid rgba(255,255,255,0.2);
+    color: white;
+  }
+
+  .mobile-contact-bar .btn-call {
+    background: #28a745; /* green for call */
+  }
+
+  .mobile-contact-bar .btn-wa {
+    background: #25D366; /* WhatsApp green */
+  }
+
+  .mobile-contact-bar .btn-call:hover,
+  .mobile-contact-bar .btn-wa:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.1);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  }
+
+  .mobile-contact-bar .btn-call i,
+  .mobile-contact-bar .btn-wa i {
+    font-size: 1.2rem;
+  }
+
+  /* Hide on desktop */
+  @media (min-width: 769px) {
+    .mobile-contact-bar {
+      display: none !important;
+    }
+  }
+
+  /* Show only on mobile */
+  @media (max-width: 768px) {
+    .mobile-contact-bar {
+      display: block;
+    }
+    /* Push page content up to avoid overlap */
+    body {
+      padding-bottom: 70px;
+    }
+  }

@@ -86,3 +86,23 @@
             $(window).on('scroll', checkCounter);
             checkCounter(); // Check on page load
         });
+         (function() {
+    // If you have an existing floating WhatsApp button, ensure it doesn't overlap
+    // This adds extra bottom margin to the floating buttons when mobile bar is visible
+    function adjustFloatingButtons() {
+      if (window.innerWidth <= 768) {
+        var fltWa = document.querySelector('.flt-wa');
+        var sttBtn = document.querySelector('.stt-btn');
+        if (fltWa) fltWa.style.bottom = '80px';
+        if (sttBtn) sttBtn.style.bottom = '140px';
+      } else {
+        var fltWa = document.querySelector('.flt-wa');
+        var sttBtn = document.querySelector('.stt-btn');
+        if (fltWa) fltWa.style.bottom = '26px';
+        if (sttBtn) sttBtn.style.bottom = '90px';
+      }
+    }
+    window.addEventListener('load', adjustFloatingButtons);
+    window.addEventListener('resize', adjustFloatingButtons);
+    adjustFloatingButtons();
+  })();
